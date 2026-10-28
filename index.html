@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clent's Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    background: #101710;
+    color: #fff8e7;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    overflow: hidden;
+}
+
+.background-link {
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    background: #101710;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.02) 0%,
+        rgba(0, 0, 0, 0.08) 35%,
+        rgba(0, 0, 0, 0.52) 60%,
+        rgba(0, 0, 0, 0.78) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.homepage {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2vh 3% 5vh;
+    pointer-events: none;
+}
+
+.content {
+    width: 48%;
+    max-width: 650px;
+    min-width: 0;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1vh 20px;
+    pointer-events: auto;
+}
+
+.brand {
+    max-width: 100%;
+    color: #f4d89a;
+    font-family: "Cinzel", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(12px, 2.2vh, 22px);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 2vh;
+    text-shadow: 0 2px 10px #000;
+    overflow-wrap: anywhere;
+}
+
+h1 {
+    max-width: 100%;
+    color: #fff8e7;
+    font-family: "Cinzel", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(24px, 5.2vh, 50px);
+    line-height: 1.15;
+    letter-spacing: 4px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    margin-bottom: 2vh;
+    text-shadow: 0 0 15px rgba(255, 215, 140, 0.55), 0 3px 10px #000;
+}
+
+.line {
+    width: 90%;
+    height: 2px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, transparent, #ffe5a3, #d6a84e, transparent);
+    margin-bottom: 2.5vh;
+    box-shadow: 0 0 12px #ffdb83;
+}
+
+.quote {
+    max-width: 100%;
+    color: #f4d89a;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 4.4vh, 38px);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    margin-bottom: 3.5vh;
+    text-shadow: 0 0 12px rgba(255, 215, 140, 0.35), 0 2px 8px #000;
+    overflow-wrap: anywhere;
+    animation: bless 2s ease forwards;
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .quote:hover {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes bless {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8vh;
+    animation: bless 2s;
+}
+
+.buttons a {
+    width: 100%;
+    max-width: 400px;
+    min-width: 0;
+    min-height: clamp(40px, 7vh, 62px);
+    padding: 1vh 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: anywhere;
+    text-align: center;
+    text-decoration: none;
+    color: #fff8e7;
+    font-family: "Cinzel", Georgia, "Times New Roman", serif;
+    font-size: clamp(11px, 1.05vw, 15px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 2px solid #e8c477;
+    border-radius: 19px;
+    background: rgba(91, 0, 20, 0.92);
+    box-shadow: 0 0 18px rgba(235, 190, 103, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, text-shadow 0.35s ease;
+}
+
+.buttons a:last-child {
+    background: rgba(9, 43, 31, 0.94);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .buttons a:hover {
+        transform: translateY(-5px) scale(1.02);
+        border-color: #fff1bd;
+        box-shadow: 0 0 22px rgba(255, 215, 140, 0.75);
+        text-shadow: 0 0 8px #ffe9b2;
+    }
+}
+
+.buttons a:active {
+    transform: scale(0.98);
+}
+
+.p {
+    animation: oo 1.5s;
+}
+
+@keyframes oo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+audio {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 5;
+    width: 230px;
+    height: 34px;
+    opacity: 0.85;
+    border-radius: 30px;
+    transition: opacity 0.3s ease;
+}
+
+audio:hover {
+    opacity: 1;
+}
+
+footer {
+    position: fixed;
+    z-index: 3;
+    bottom: 12px;
+    right: 2%;
+    width: 48%;
+    padding: 0 10px;
+    text-align: center;
+    color: #fff4dc;
+    font-family: "Cinzel", Georgia, "Times New Roman", serif;
+    font-size: clamp(8px, 0.8vw, 10px);
+    letter-spacing: 3px;
+    text-shadow: 0 2px 6px #000;
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 60%;
+    }
+
+    .buttons a {
+        font-size: 13px;
+    }
+
+    footer {
+        width: 60%;
+    }
+}
+
+@media (max-width: 700px) {
+    .background {
+        object-fit: cover;
+        object-position: center 40%;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    .homepage {
+        justify-content: center;
+        padding: 2vh 18px 5vh;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 460px;
+        padding: 2vh 18px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+    }
+
+    .brand {
+        font-size: clamp(12px, 2.2vh, 17px);
+        letter-spacing: 4px;
+    }
+
+    h1 {
+        font-size: clamp(22px, 4.8vh, 40px);
+        letter-spacing: 3px;
+    }
+
+    .quote {
+        font-size: clamp(18px, 3.4vh, 28px);
+        margin-bottom: 2.5vh;
+    }
+
+    .buttons a {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    audio {
+        top: 8px;
+        left: 8px;
+        width: 190px;
+        height: 30px;
+    }
+
+    footer {
+        width: 100%;
+        right: 0;
+        bottom: 10px;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+    body {
+        overflow-y: auto;
+    }
+
+    .brand,
+    h1,
+    .line,
+    .quote {
+        margin-bottom: 1vh;
+    }
+
+    .buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .buttons a {
+        width: auto;
+        flex: 1 1 140px;
+        min-height: 36px;
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" target="_self" class="background-link">
+    <img class="background" src="pppp.png" alt="Go to homepage">
+</a>
+
+<div class="overlay"></div>
+
+<audio src="copines.mp3" autoplay loop preload="auto"></audio>
+
+<main class="homepage">
+    <section class="content">
+        <p class="brand">Clent's Portfolio</p>
+        <h1 class="p">PROJECTS MADE</h1>
+        <div class="line"></div>
+
+        <p class="quote">Life Is A Waterfall. No Matter How Hard We Fall, We Must Keep Going And Flowing.</p>
+
+        <nav class="buttons">
+            <a href="mobilebio.html" target="_self">✦ BIOGRAPHY ✦</a>
+            <a href="mobilehey.html" target="_self">✦ BSIT REGISTRATION FORM ✦</a>
+            <a href="engance.html" target="_self">✦ WOW IMPACT ✦</a>
+        </nav>
+    </section>
+</main>
+
+<footer>MY WORK • MY JOURNEY • MY CREATIONS</footer>
+
+</body>
+</html>

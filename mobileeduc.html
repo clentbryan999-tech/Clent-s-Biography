@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My Educational Background</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(16,185,129,.22), transparent 35%),
+        radial-gradient(circle at 85% 70%, rgba(99,102,241,.25), transparent 35%),
+        linear-gradient(135deg, #020617, #042f2e, #061b36, #09091e);
+    background-color: #020617;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #ecfeff;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .35;
+    pointer-events: none;
+    z-index: -1;
+    animation: floatLight 10s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: #10b981;
+    top: 5%;
+    left: -120px;
+}
+
+body::after {
+    background: #6366f1;
+    right: -120px;
+    bottom: 5%;
+    animation-delay: -5s;
+}
+
+@keyframes floatLight {
+    from {
+        transform: translateY(-20px) scale(.9);
+    }
+    to {
+        transform: translateY(60px) scale(1.2);
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.navigation {
+    padding: 25px 7%;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    color: #a7f3d0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border: 1px solid #34d399;
+    border-radius: 8px;
+    background: rgba(6,78,59,.35);
+    box-shadow: 0 0 15px rgba(16,185,129,.15);
+    transition: .35s ease;
+}
+
+.home-btn:active {
+    transform: scale(.96);
+}
+
+.hero {
+    text-align: center;
+    padding: 35px 20px 75px;
+    animation: fadeDown 1.2s ease both;
+}
+
+.eyebrow {
+    color: #6ee7b7;
+    letter-spacing: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 6vw, 76px);
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #d1fae5, #34d399, #67e8f9, #c4b5fd, #d1fae5);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 6s linear infinite;
+    filter: drop-shadow(0 0 18px rgba(52,211,153,.2));
+}
+
+@keyframes shine {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.hero-line {
+    width: 130px;
+    height: 3px;
+    margin: 30px auto;
+    background: linear-gradient(90deg, transparent, #34d399, #67e8f9, transparent);
+    box-shadow: 0 0 20px #34d399;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #a5c7d4;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.timeline {
+    width: min(1450px, 94%);
+    margin: auto;
+    padding: 0 0 80px;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 100px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #34d399, #22d3ee, #818cf8, transparent);
+    opacity: .5;
+    transform: translateX(-50%);
+}
+
+.education-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 1.1fr);
+    align-items: center;
+    gap: 35px;
+    margin: 0 0 65px;
+    padding: 30px;
+    border: 1px solid rgba(110,231,183,.25);
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(6,78,59,.45), rgba(8,47,73,.55), rgba(49,46,129,.25));
+    backdrop-filter: blur(14px);
+    box-shadow: 0 15px 45px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.05);
+    position: relative;
+    overflow: hidden;
+    animation: reveal .9s ease both;
+    transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+}
+
+.education-card:nth-child(even) {
+    grid-template-columns: minmax(300px, 1.1fr) minmax(0, 1fr);
+}
+
+.education-card:nth-child(even) .photos {
+    order: 2;
+}
+
+.education-card:nth-child(even) .details {
+    order: 1;
+}
+
+.education-card::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: -130px;
+    right: -100px;
+    border-radius: 50%;
+    background: #34d399;
+    opacity: .12;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    min-width: 0;
+}
+
+.photo-frame {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #6ee7b7, #22d3ee, #818cf8);
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    transition: transform .4s ease;
+}
+
+.photo-frame:nth-child(2) {
+    margin-top: 25px;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform .65s ease;
+}
+
+.details {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    padding: 10px;
+    min-width: 0;
+}
+
+.stage-number {
+    display: inline-block;
+    color: #6ee7b7;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.details h2 {
+    color: #ecfeff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.school-name {
+    color: #67e8f9;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.location {
+    color: #b6cbd8;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.year {
+    display: inline-block;
+    padding: 10px 18px;
+    color: #d1fae5;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 1px solid rgba(110,231,183,.5);
+    border-radius: 50px;
+    background: rgba(16,185,129,.12);
+    box-shadow: inset 0 0 15px rgba(16,185,129,.06);
+}
+
+.description {
+    color: #91aebb;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 20px;
+    max-width: 440px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px 45px;
+    border-top: 1px solid rgba(110,231,183,.15);
+    color: #7c9aa9;
+    font-size: 13px;
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+footer span {
+    color: #6ee7b7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-btn:hover {
+        color: #020617;
+        background: #6ee7b7;
+        box-shadow: 0 0 15px #34d399, 0 0 35px rgba(52,211,153,.6);
+        transform: translateY(-3px);
+    }
+
+    .education-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(103,232,249,.85);
+        box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 25px rgba(52,211,153,.12);
+    }
+
+    .photo-frame:hover {
+        transform: translateY(-8px) scale(1.025);
+        z-index: 2;
+    }
+
+    .photo-frame:hover img {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 1100px) {
+    .education-card {
+        gap: 25px;
+        padding: 24px;
+    }
+
+    .photo-frame {
+        height: 260px;
+    }
+}
+
+@media (max-width: 900px) {
+    .timeline::before {
+        display: none;
+    }
+
+    .education-card,
+    .education-card:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px;
+    }
+
+    .education-card:nth-child(even) .photos,
+    .education-card:nth-child(even) .details {
+        order: initial;
+    }
+
+    .photos {
+        max-width: 650px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .photo-frame {
+        height: 300px;
+    }
+
+    .details {
+        text-align: center;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .navigation {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 25px 20px 50px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .eyebrow {
+        letter-spacing: 4px;
+        font-size: 10px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .education-card,
+    .education-card:nth-child(even) {
+        padding: 16px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+    }
+
+    .photos {
+        gap: 9px;
+    }
+
+    .photo-frame {
+        height: 205px;
+        padding: 4px;
+    }
+
+    .photo-frame:nth-child(2) {
+        margin-top: 15px;
+    }
+
+    .details h2 {
+        font-size: 27px;
+    }
+
+    .school-name {
+        font-size: 16px;
+    }
+
+    .location {
+        font-size: 14px;
+    }
+
+    .year {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<nav class="navigation">
+    <a href="mobilebio.html" target="_self" class="home-btn">&#8592; HOME</a>
+</nav>
+
+<header class="hero">
+    <div class="eyebrow">MY JOURNEY • MY GROWTH • MY FUTURE</div>
+    <h1>MY EDUCATIONAL<br>BACKGROUND</h1>
+    <div class="hero-line"></div>
+    <p>
+        Every great achievement begins with a single step.
+        These are the milestones that shaped my knowledge,
+        strengthened my character, and continue to inspire
+        my journey toward a brighter future.
+    </p>
+</header>
+
+<main class="timeline">
+    <section class="education-card">
+        <div class="photos">
+            <div class="photo-frame">
+                <img src="elem1.jpg" alt="Primary education photograph one">
+            </div>
+            <div class="photo-frame">
+                <img src="elem2.jpg" alt="Primary education photograph two">
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="stage-number">01 / THE BEGINNING</div>
+            <h2>Primary Education</h2>
+            <p class="school-name">Conalum Elementary School</p>
+            <p class="location">Conalum, Argao, Cebu</p>
+            <span class="year">2012 — 2019</span>
+            <p class="description">
+                The beginning of my educational journey, where
+                I developed the foundations of learning,
+                discovered new interests, and began building
+                the dreams that would guide my future.
+            </p>
+        </div>
+    </section>
+
+    <section class="education-card">
+        <div class="photos">
+            <div class="photo-frame">
+                <img src="haha.webp" alt="Junior high school photograph one">
+            </div>
+            <div class="photo-frame">
+                <img src="hahaha.webp" alt="Junior high school photograph two">
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="stage-number">02 / DISCOVERY</div>
+            <h2>Secondary Education</h2>
+            <p class="school-name">Cansuje National High School</p>
+            <p class="location">Cansuje, Argao, Cebu</p>
+            <span class="year">2022 — 2023</span>
+            <p class="description">
+                A chapter of discovery, new challenges, and
+                personal growth. This stage helped me develop
+                confidence, learn valuable lessons, and
+                understand the importance of perseverance.
+            </p>
+        </div>
+    </section>
+
+    <section class="education-card">
+        <div class="photos">
+            <div class="photo-frame">
+                <img src="sr1.jpg" alt="Senior high school photograph one">
+            </div>
+            <div class="photo-frame">
+                <img src="sr2.jpg" alt="Senior high school photograph two">
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="stage-number">03 / TRANSFORMATION</div>
+            <h2>Senior High School</h2>
+            <p class="school-name">Cansuje National High School</p>
+            <p class="location">Cansuje, Argao, Cebu</p>
+            <span class="year">2023 — 2025</span>
+            <p class="description">
+                A defining chapter that prepared me for the
+                future. Through new experiences and challenges,
+                I continued to strengthen my skills, expand
+                my knowledge, and pursue my ambitions.
+            </p>
+        </div>
+    </section>
+
+    <section class="education-card">
+        <div class="photos">
+            <div class="photo-frame">
+                <img src="pic11.jpg" alt="College education photograph one">
+            </div>
+            <div class="photo-frame">
+                <img src="pic9.jpg" alt="College education photograph two">
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="stage-number">04 / THE NEXT CHAPTER</div>
+            <h2>Higher Education</h2>
+            <p class="school-name">Bachelor of Science in Information Technology</p>
+            <p class="location">Cebu Technological University — Argao Campus</p>
+            <span class="year">2025 — PRESENT</span>
+            <p class="description">
+                Today, I continue my journey in the world of
+                Information Technology, exploring innovation,
+                developing technical skills, and preparing
+                to turn my ambitions into meaningful achievements.
+                My story is still being written.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>EVERY STEP HAS A PURPOSE. EVERY DREAM HAS A FUTURE.</p>
+    <p>Designed with <span>&#10084;</span> and ambition.</p>
+</footer>
+
+<audio src="young.mp3" autoplay loop preload="auto"></audio>
+</body>
+</html>

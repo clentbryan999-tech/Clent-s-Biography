@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>biography</title>
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    background:#1a0f14;
+    margin:0;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding-bottom:100px;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:url("AI.png") center / cover no-repeat;
+}
+
+.title{
+    text-align:center;
+    font-size:clamp(2.2rem, 8vw, 94px);
+    margin-top:0;
+    margin-bottom:0;
+    font-family:"Kristen ITC",cursive;
+    color:#FFFFE0;
+    text-shadow:6px 6px 6px #f2f20b;
+    line-height:1.3;
+    transition:all 0.4s ease;
+    animation:huhu 8s;
+}
+
+@keyframes huhu{
+    from{ opacity:0; }
+    to{ opacity:1; }
+}
+
+.stage{
+    perspective:1400px;
+    width:50%;
+    height:420px;
+    display:grid;
+    place-items:center;
+    position:relative;
+    overflow:visible;
+    margin-top:-35px;
+    margin-bottom:6px;
+}
+
+.ring{
+    position:relative;
+    width:140px;
+    height:200px;
+    transform-style:preserve-3d;
+    animation:orbit 100s linear infinite;
+}
+
+.stage:hover .ring{
+    animation-play-state:paused;
+}
+
+.ring img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+    border:3px solid #e879a5;
+    box-shadow:0 0 20px #d93675;
+    transform:rotateY(calc(var(--i) * 22.5deg)) translateZ(360px);
+    -webkit-box-reflect:below 6px linear-gradient(transparent 70%, rgba(255,255,255,.25));
+    transition:transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease, filter 0.5s ease;
+    cursor:pointer;
+}
+
+@keyframes orbit{
+    from{ transform:rotateY(0deg); }
+    to{ transform:rotateY(-360deg); }
+}
+
+.right{
+    position:absolute;
+    top:29%;
+    left:55%;
+    width:40%;
+    font-size:clamp(16px, 1.7vw, 24px);
+    color:rgb(251,251,248);
+    text-align:left;
+    padding:0;
+    margin:0;
+    text-shadow:6px 6px 6px #8a4f07;
+    transition:all 0.4s ease;
+    animation:huhu 8s;
+}
+
+.container{
+    position:fixed;
+    bottom:12px;
+    left:0;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    margin:0;
+    padding:10px 15px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.container a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    width:165px;
+    min-height:52px;
+    padding:12px;
+    background:linear-gradient(135deg, rgba(95,0,25,0.92), rgba(174,22,66,0.94), rgba(215,91,128,0.92));
+    color:#fff8e7;
+    text-decoration:none;
+    text-align:center;
+    font-family:"Kristen ITC", Georgia, serif;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+    border:1px solid #f0cf83;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(80,0,20,0.4), inset 0 0 12px rgba(255,240,200,0.12);
+    backdrop-filter:blur(5px);
+    transition:all 0.4s ease;
+}
+
+.container a::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:-130%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(110deg, transparent, rgba(255,244,194,0.6), transparent);
+    transform:skewX(-25deg);
+    transition:left 0.7s ease;
+    pointer-events:none;
+}
+
+.container a:active{
+    transform:scale(0.96);
+}
+
+.container a:focus-visible{
+    outline:2px solid #f2bc0b;
+    outline-offset:4px;
+}
+
+.nav-button{
+    background:linear-gradient(135deg, #a8174b, #d63368, #8e153d);
+    color:#fff8f0;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-top:3px;
+    margin-left:3px;
+    padding:7px;
+    min-width:135px;
+    border:1px solid #f5b6c8;
+    border-radius:13px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.35), inset 0 1px 2px rgba(255,255,255,0.3);
+    cursor:pointer;
+    transition:all 0.3s ease;
+    display:inline-block;
+    text-align:center;
+    text-decoration:none;
+}
+
+.nav-button:active{
+    transform:translateY(1px);
+    box-shadow:0 2px 5px rgba(0,0,0,0.3);
+}
+
+.nav-button:focus-visible{
+    outline:2px solid #fff0a8;
+    outline-offset:4px;
+}
+
+@media (hover:hover) and (pointer:fine){
+    .title:hover{
+        transform:scale(1.05);
+        color:#f2f20b;
+        text-shadow:6px 6px 6px #FFFFE0;
+    }
+
+    .ring img:hover{
+        transform:rotateY(calc(var(--i) * 22.5deg)) translateZ(385px) scale(1.12);
+        border-color:#fff0b3;
+        box-shadow:0 0 20px #fff0b3, 0 0 40px #ff4f91;
+        filter:brightness(1.12);
+        z-index:10;
+    }
+
+    .right:hover{
+        color:#f2d0f3;
+        transform:scale(1.02);
+        text-shadow:0 0 10px #140602;
+        cursor:pointer;
+    }
+
+    .container a:hover{
+        background:linear-gradient(135deg, rgba(143,5,45,0.98), rgba(220,65,110,0.98), rgba(245,175,190,0.96));
+        color:#ffffff;
+        border-color:#fff0b3;
+        transform:translateY(-6px) scale(1.05);
+        box-shadow:0 0 15px rgba(255,215,140,0.65), 0 8px 25px rgba(181,18,42,0.5);
+        text-shadow:0 0 8px #fff4d6;
+    }
+
+    .container a:hover::before{
+        left:150%;
+    }
+
+    .nav-button:hover{
+        background:linear-gradient(135deg, #ed5687, #b91e55, #791139);
+        border-color:#fff0a8;
+        color:#fffde8;
+        transform:translateY(-4px);
+        box-shadow:0 7px 18px rgba(255,74,137,0.45), 0 0 12px rgba(255,190,210,0.3);
+    }
+}
+
+@media (max-width:1024px){
+    body{
+        padding-bottom:110px;
+    }
+
+    .stage{
+        width:100%;
+        height:400px;
+    }
+
+    .right{
+        position:relative;
+        top:auto;
+        left:auto;
+        width:88%;
+        margin:10px auto 40px;
+        font-size:clamp(16px, 2.4vw, 22px);
+    }
+}
+
+@media (max-width:700px){
+    body{
+        padding-bottom:150px;
+    }
+
+    .title{
+        font-size:12vw;
+    }
+
+    .stage{
+        width:100%;
+        height:300px;
+        overflow:hidden;
+        margin-top:0;
+    }
+
+    .ring{
+        width:95px;
+        height:135px;
+    }
+
+    .ring img{
+        transform:rotateY(calc(var(--i) * 22.5deg)) translateZ(245px);
+    }
+
+    .right{
+        width:90%;
+        margin:10px auto 35px;
+        font-size:16px;
+    }
+
+    .container{
+        gap:8px;
+        padding:8px;
+        bottom:5px;
+    }
+
+    .container a{
+        width:calc(50% - 8px);
+        min-height:43px;
+        padding:8px;
+        font-size:11px;
+        letter-spacing:1px;
+    }
+
+    .nav-button{
+        min-width:110px;
+        padding:10px 16px;
+        font-size:12px;
+    }
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" target="_self" class="nav-button">Home</a>
+
+<h1 class="title">My Biography</h1>
+
+<div class="stage">
+    <div class="ring">
+        <img style="--i:0" src="pic0.jpg" alt="">
+        <img style="--i:1" src="pic1.jpg" alt="">
+        <img style="--i:2" src="pic2.jpg" alt="">
+        <img style="--i:3" src="pic3.jpg" alt="">
+        <img style="--i:4" src="pic4.jpg" alt="">
+        <img style="--i:5" src="pic39.jpg" alt="">
+        <img style="--i:6" src="pic40.jpg" alt="">
+        <img style="--i:7" src="pic41.jpg" alt="">
+        <img style="--i:8" src="pic42.jpg" alt="">
+        <img style="--i:9" src="sr1.jpg" alt="">
+        <img style="--i:10" src="pic5.jpg" alt="">
+        <img style="--i:11" src="pic14.jpg" alt="">
+        <img style="--i:12" src="pic23.jpg" alt="">
+        <img style="--i:13" src="sr2.jpg" alt="">
+        <img style="--i:14" src="pic30.jpg" alt="">
+        <img style="--i:15" src="pic19.jpg" alt="">
+    </div>
+</div>
+
+<h2 class="right">
+    The World has So Many Beautiful Things To Offer.
+    Live and Learn To Appreciate The Beauty Of Life.
+    Savor Every Moments And make The most in Everyday.
+    <br><br>
+    Hello, I am Clent Bryan A. Bajenting 19 years old. I am currently taking Bachelor of Science in Information Technology (BSIT), at Cebu Technological University–Argao Campus. I live in Conalum, Argao, Cebu. Currently renting a room near the Argao area.
+</h2>
+
+<div class="container">
+    <a href="mobileeduc.html" target="_self">EDUCATION</a>
+    <a href="mobilehob.html" target="_self">HOBBIES</a>
+    <a href="mobilefuture.html" target="_self">FUTURE</a>
+    <a href="mobilevisit.html" target="_self">WEBSITE</a>
+</div>
+
+<audio src="young.mp3" autoplay loop preload="auto"></audio>
+</body>
+</html>

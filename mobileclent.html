@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT Student Registration form</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #121212;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    color: #f5f6f2;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("statue1.png") center / cover no-repeat;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+.page {
+    width: 65%;
+    padding: 20px 20px 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    font-family: Algerian, Georgia, serif;
+    color: #f4efef;
+    text-align: center;
+    font-size: clamp(20px, 3vw, 32px);
+    margin: 0;
+}
+
+.welcome {
+    font-family: Algerian, Georgia, serif;
+    color: #f4efef;
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.quick-links h4 {
+    color: #f4efef;
+    margin: 0 0 8px;
+    text-align: center;
+}
+
+.quick-links .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+}
+
+.quick-links a {
+    color: #f4efef;
+    text-decoration: none;
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.media video,
+.media img {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.profile h2 {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.profile a {
+    color: #f4efef;
+    text-decoration: none;
+}
+
+.profile p {
+    margin: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.form-section h2 {
+    margin: 0 0 15px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="number"],
+.field input[type="date"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+    width: 100%;
+    max-width: 420px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.field textarea {
+    resize: vertical;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+}
+
+.options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    padding: 11px 24px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.embeds {
+    padding: 10px 1.5cm 50px 20px;
+}
+
+.embeds h1 {
+    font-family: Harrington, Georgia, serif;
+    text-align: center;
+    margin: 0 0 25px;
+}
+
+.embed-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.embed-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+.embed-box iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.embed-box blockquote {
+    max-width: 400px;
+    min-width: 0 !important;
+    margin: 0 auto;
+}
+
+.fb-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.fb-box {
+    width: 100%;
+    max-width: 820px;
+    aspect-ratio: 820 / 461;
+}
+
+.fb-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .quick-links a:hover,
+    .profile a:hover {
+        text-decoration: underline;
+    }
+
+    .form-buttons button:hover {
+        filter: brightness(1.1);
+    }
+}
+
+@media (max-width: 1024px) {
+    .page {
+        width: 80%;
+    }
+
+    .profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .embeds {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .page {
+        width: 100%;
+        padding: 15px 14px 30px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .header {
+        gap: 10px;
+    }
+
+    .media {
+        gap: 10px;
+    }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="password"],
+    .field input[type="number"],
+    .field input[type="date"],
+    .field input[type="tel"],
+    .field select,
+    .field textarea {
+        max-width: 100%;
+    }
+
+    .form-buttons button {
+        flex: 1 1 140px;
+    }
+
+    .embeds {
+        padding: 10px 14px 40px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .embed-row,
+    .fb-wrap {
+        justify-content: center;
+    }
+
+    .embed-box iframe {
+        height: 480px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <div class="header">
+        <a href="https://www.facebook.com/share/1HyCkosNWp/?mibextid=wwXIfr">
+            <img src="log2.jpg" alt="Facebook page logo">
+        </a>
+
+        <h1>BSIT registration system</h1>
+
+        <a href="https://www.ctu.edu.ph">
+            <img src="log1.jpg" alt="CTU logo">
+        </a>
+    </div>
+
+    <p class="welcome">Welcome to BSIT Registration Webpage</p>
+
+    <div class="quick-links">
+        <h4>QUICK LINKS</h4>
+
+        <div class="row">
+            <a href="home.html">HOME</a>
+            <a href="https://www.google.com" target="_blank">Google</a>
+            <a href="https://www.ctu.edu.ph" target="_blank">CTU website</a>
+        </div>
+    </div>
+
+    <div class="media">
+        <video id="myVideo" controls>
+            <source src="bid.mp4" type="video/mp4">
+        </video>
+
+        <img src="pik.jpg" alt="Student picture">
+    </div>
+
+    <div class="profile">
+        <a href="info.html">
+            <h2>Student Profile</h2>
+        </a>
+
+        <p>
+            Here at Cebu Technological University – Argao Campus,
+            we offer the Bachelor of Science in Information Technology (BSIT),
+            where students develop skills in programming, web development,
+            networking, and other areas of technology. Join us and start building
+            the skills for your future in the world of IT!
+        </p>
+    </div>
+
+    <div class="form-section">
+        <h2>Student Registration Form</h2>
+
+        <form>
+            <div class="field">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="field">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="field">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="15" max="100">
+            </div>
+
+            <div class="field">
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+
+            <div class="field">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="09XXXXXXXXX">
+            </div>
+
+            <div class="field">
+                <label for="program">Program:</label>
+
+                <select id="program" name="program">
+                    <option value="">-- Select Program --</option>
+                    <option value="bsit">BS Information Technology</option>
+                    <option value="bscs">BS Computer Science</option>
+                    <option value="bsis">BS Information Systems</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <p style="margin: 0 0 6px;">Year Level:</p>
+
+                <div class="options">
+                    <label for="first">
+                        <input type="radio" id="first" name="year" value="1st Year"> 1st Year
+                    </label>
+
+                    <label for="second">
+                        <input type="radio" id="second" name="year" value="2nd Year"> 2nd Year
+                    </label>
+
+                    <label for="third">
+                        <input type="radio" id="third" name="year" value="3rd Year"> 3rd Year
+                    </label>
+
+                    <label for="fourth">
+                        <input type="radio" id="fourth" name="year" value="4th Year"> 4th Year
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <p style="margin: 0 0 6px;">Programming Skills:</p>
+
+                <div class="options">
+                    <label for="html">
+                        <input type="checkbox" id="html" name="skills" value="HTML"> HTML
+                    </label>
+
+                    <label for="css">
+                        <input type="checkbox" id="css" name="skills" value="CSS"> CSS
+                    </label>
+
+                    <label for="javascript">
+                        <input type="checkbox" id="javascript" name="skills" value="JavaScript"> JavaScript
+                    </label>
+
+                    <label for="java">
+                        <input type="checkbox" id="java" name="skills" value="Java"> Java
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your complete address"></textarea>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit">Submit Registration</button>
+                <button type="reset">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+</main>
+
+<audio src="mu.mp3" autoplay loop preload="auto"></audio>
+
+<section class="embeds">
+    <h1>MULTIMEDIA EMBEDDING</h1>
+
+    <div class="embed-row">
+        <div class="embed-box">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@fredenmooney/video/7652187574785543442" data-video-id="7652187574785543442">
+                <section>
+                    <a target="_blank" title="@fredenmooney" href="https://www.tiktok.com/@fredenmooney?refer=embed">@fredenmooney</a>
+                </section>
+            </blockquote>
+        </div>
+
+        <div class="embed-box">
+            <iframe src="https://www.instagram.com/p/DVQhhhBCdCE/embed" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+    </div>
+
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <div class="fb-wrap">
+        <div class="fb-box">
+            <iframe src="https://www.facebook.com/plugins/video.php?height=461&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1177918020579080%2F&show_text=false&width=820&t=0" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

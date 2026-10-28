@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME PAGE</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #1a0f0a;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    color: #f0f7fe;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    padding: 20px 15px 40px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("bk.png") center / cover no-repeat;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px auto 10px;
+}
+
+.header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    color: #4A0010;
+    text-align: center;
+    font-family: Algerian, Georgia, serif;
+    font-size: clamp(20px, 4vw, 32px);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.links span {
+    color: #231c03;
+}
+
+.links a {
+    color: #f0f7fe;
+    text-decoration: none;
+}
+
+.about {
+    text-align: center;
+    color: #4a3405;
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 0 10px;
+    line-height: 1.6;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    text-align: center;
+    color: #783b03;
+}
+
+.login-box h2 {
+    margin-top: 0;
+}
+
+.login-box input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #783b03;
+    color: #ffffff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    transition: 0.3s ease;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    .btn:hover {
+        background-color: #a0520a;
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 900px) {
+    .header img {
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px 10px 30px;
+    }
+
+    .header {
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .header img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .links span {
+        font-weight: bold;
+    }
+
+    .about {
+        font-size: 14px;
+    }
+
+    .about br {
+        display: none;
+    }
+
+    .login-box {
+        padding: 22px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="https://www.ctu.edu.ph/argao/category/cebu-technological-university/">
+        <img src="log1.jpg" alt="CTU logo">
+    </a>
+
+    <h1>
+        BSIT REGISTRATION<br>
+        WEBPAGE
+    </h1>
+
+    <a href="https://www.facebook.com/share/1HyCkosNWp/?mibextid=wwXIfr">
+        <img src="log2.jpg" alt="Facebook page logo">
+    </a>
+</div>
+
+<div class="links">
+    <span>Links:</span>
+    <a href="https://web.facebook.com/share/v/19EK9iRsey/">Log in Tutorial</a>
+    <a href="https://sis-argao.ctu.edu.ph/Account/Login?ReturnUrl=%2Fhome">SIS Portal</a>
+    <a href="https://chatgpt.com/">AI Assistance</a>
+</div>
+
+<p class="about">
+    Cebu Technological University (CTU) is a Premier University in Southeast Asia,<br>
+    committed to providing Quality Education, Innovation, and Technological Advancement.
+</p>
+
+<div class="login-box">
+    <h2>LOGIN</h2>
+
+    <form action="clent.html">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+    </form>
+
+    <div class="buttons">
+        <a href="clent.html" class="btn">REGISTER</a>
+        <button type="button" class="btn">LOGIN</button>
+    </div>
+</div>
+
+</body>
+</html>

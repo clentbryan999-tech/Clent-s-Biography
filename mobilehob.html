@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY HOBBIES AND INTEREST</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,215,0,0.15), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(184,134,11,0.18), transparent 35%),
+        linear-gradient(135deg, #100b03, #382600, #171006, #050403);
+    background-color: #100b03;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff8dc;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+    animation: floatingGlow 9s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: #ffd700;
+    top: 5%;
+    left: -120px;
+}
+
+body::after {
+    background: #b8860b;
+    right: -120px;
+    bottom: 5%;
+    animation-delay: -4s;
+}
+
+@keyframes floatingGlow {
+    from {
+        transform: translateY(-20px) scale(0.9);
+    }
+    to {
+        transform: translateY(50px) scale(1.2);
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.navigation {
+    padding: 25px 6%;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    color: #ffe9a3;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    background: rgba(184,134,11,0.12);
+    transition: 0.35s ease;
+}
+
+.home-btn:active {
+    transform: scale(0.96);
+}
+
+.hero {
+    text-align: center;
+    padding: 35px 20px 75px;
+    animation: fadeDown 1.2s ease both;
+}
+
+.subtitle {
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 7px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 76px);
+    line-height: 1.2;
+    letter-spacing: 3px;
+    font-weight: 900;
+    background: linear-gradient(100deg, #8c6412, #fff1a8, #d4af37, #fff8dc, #b8860b, #fff1a8);
+    background-size: 300% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: goldShine 7s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(255,215,0,0.2));
+}
+
+@keyframes goldShine {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.hero-line {
+    width: 150px;
+    height: 3px;
+    margin: 28px auto;
+    background: linear-gradient(90deg, transparent, #d4af37, #fff1a8, #d4af37, transparent);
+    box-shadow: 0 0 15px #d4af37;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #d4c6a0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hobbies {
+    width: min(1500px, 94%);
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+.hobby-section {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 65px;
+    padding: 30px;
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(71,48,8,0.48), rgba(25,19,8,0.78), rgba(94,66,9,0.22));
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+    animation: reveal 1s ease both;
+}
+
+.hobby-section::before {
+    content: "✦";
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: rgba(255,215,0,0.3);
+    font-size: 28px;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.35;
+        transform: rotate(0deg) scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1.15);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading .number {
+    display: block;
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    color: #fff1a8;
+    font-size: clamp(26px, 4vw, 43px);
+    line-height: 1.3;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255,215,0,0.3), 0 0 30px rgba(212,175,55,0.15);
+}
+
+.section-heading .underline {
+    width: 90px;
+    height: 2px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.photo-card {
+    position: relative;
+    height: 310px;
+    min-width: 0;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #fff1a8, #d4af37, #8c6412, #f9e076);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.4), 0 0 12px rgba(212,175,55,0.1);
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+    opacity: 0.92;
+    transition: transform 0.7s ease, filter 0.5s ease, opacity 0.5s ease;
+}
+
+.photo-card::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 9px;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent 45%);
+    pointer-events: none;
+}
+
+footer {
+    padding: 35px 20px 45px;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,55,0.22);
+    color: #a99b77;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 2.2;
+    letter-spacing: 2px;
+}
+
+footer span {
+    color: #e6c65c;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-btn:hover {
+        color: #1b1100;
+        background: linear-gradient(135deg, #fff1a8, #d4af37, #fff1a8);
+        box-shadow: 0 0 15px #d4af37, 0 0 35px rgba(255,215,0,0.4);
+        transform: translateY(-4px);
+    }
+
+    .photo-card:hover {
+        z-index: 2;
+        transform: translateY(-10px) scale(1.025);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 22px rgba(255,215,0,0.4);
+    }
+
+    .photo-card:hover img {
+        transform: scale(1.12);
+        filter: brightness(1.12) saturate(1.1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1100px) {
+    .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .photo-card {
+        height: 300px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hobby-section {
+        padding: 24px 18px;
+    }
+
+    .photo-card {
+        height: 260px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 25px 18px 50px;
+    }
+
+    .hero h1 {
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hobbies {
+        width: 94%;
+    }
+
+    .hobby-section {
+        padding: 20px 14px;
+        margin-bottom: 35px;
+        border-radius: 15px;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading .number {
+        letter-spacing: 3px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card {
+        height: 245px;
+        padding: 4px;
+    }
+
+    .photo-card::after {
+        inset: 4px;
+    }
+}
+
+@media (max-width: 360px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card {
+        height: 340px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="navigation">
+    <a href="mobilebio.html" target="_self" class="home-btn">&#8592; HOME</a>
+</nav>
+
+<header class="hero">
+    <div class="subtitle">MY PASSIONS • MY WORLD • MY STORY</div>
+    <h1>MY HOBBIES<br>AND INTEREST</h1>
+    <div class="hero-line"></div>
+    <p>
+        Life becomes more beautiful when we make time for
+        the things we love. From nurturing nature and exploring
+        new places to discovering unforgettable anime stories,
+        these are the passions that make my world unique.
+    </p>
+</header>
+
+<main class="hobbies">
+    <section class="hobby-section">
+        <div class="section-heading">
+            <span class="number">01 / NATURE &amp; GROWTH</span>
+            <h2>GROWING PLANTS</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="f1.jpg" alt="Growing plants 1">
+            </div>
+            <div class="photo-card">
+                <img src="f2.jpg" alt="Growing plants 2">
+            </div>
+            <div class="photo-card">
+                <img src="f3.jpg" alt="Growing plants 3">
+            </div>
+            <div class="photo-card">
+                <img src="f4.jpg" alt="Growing plants 4">
+            </div>
+            <div class="photo-card">
+                <img src="f5.jpg" alt="Growing plants 5">
+            </div>
+        </div>
+    </section>
+
+    <section class="hobby-section">
+        <div class="section-heading">
+            <span class="number">02 / EXPLORATION &amp; DISCOVERY</span>
+            <h2>TRAVELING / ADVENTURE</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="pic4.jpg" alt="Travel adventure 1">
+            </div>
+            <div class="photo-card">
+                <img src="pic6.jpg" alt="Travel adventure 2">
+            </div>
+            <div class="photo-card">
+                <img src="pic27.jpg" alt="Travel adventure 3">
+            </div>
+            <div class="photo-card">
+                <img src="pic2.3.jpg" alt="Travel adventure 4">
+            </div>
+            <div class="photo-card">
+                <img src="pic1.jpg" alt="Travel adventure 5">
+            </div>
+        </div>
+    </section>
+
+    <section class="hobby-section">
+        <div class="section-heading">
+            <span class="number">03 / IMAGINATION &amp; STORIES</span>
+            <h2>WATCHING ANIME</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="a5.jpg" alt="Anime 1">
+            </div>
+            <div class="photo-card">
+                <img src="a2.jpg" alt="Anime 2">
+            </div>
+            <div class="photo-card">
+                <img src="a3.jpg" alt="Anime 3">
+            </div>
+            <div class="photo-card">
+                <img src="a4.jpg" alt="Anime 4">
+            </div>
+            <div class="photo-card">
+                <img src="a1.jpg" alt="Anime 5">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>DO WHAT YOU LOVE. EXPLORE WHAT INSPIRES YOU.</p>
+    <p>MY PASSIONS, MY MEMORIES, <span>MY STORY.</span></p>
+</footer>
+
+</body>
+</html>
